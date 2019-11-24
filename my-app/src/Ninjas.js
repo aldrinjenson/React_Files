@@ -1,53 +1,36 @@
-// import React,{Component} from 'react'
-
-// class Ninjas extends Component{
-//     render(){
-//         const{ninjas} = this.props
-//         const ninjaList = ninjas.map((ninj) => {
-//             return(
-//                 <div className="ninja" key={ninj.id}>
-//                     <div>Name: {ninj.name}</div>
-//                     <div>Age: {ninj.age}</div>
-//                     <div>Belt: {ninj.belt}</div>
-//                     <hr/>
-//                 </div>
-//             )
-//             //Here ninj represents each individual ninjas
-//         })
-//         return(
-//             <div className="ninja-list">           
-//                 {ninjaList}
-//             </div>
-//         )
-//     }
-// }
-// export default Ninjas
-
-//changing a container component to a steteless functional component
-//Use functional components when we don't need the state and we are primarily concerenc with the UI
-
+//note: for destructuring, the names have to be the same
 import React from 'react'
+const Ninjas = ({ninjas}) => {
+    //using ternary operator
+    // const NinjaList = ninjas.map(n => {
+    //     return n.age>20? (
+    //         <div className="ninja" key={n.id}>
+    //         <div>Name:{n.name}</div>
+    //         <div>Age:{n.age}</div>
+    //         <div>belt:{n.belt}</div>
+    //     </div>)
+    //     :null
 
+    // })
 
-// const Ninjas = (props) => {
-const Ninjas = ({ninjas}) => {  //destructuring directly inside the parameter parenthesis
-    // const{ninjas} = props
-    const ninjaList = ninjas.map((ninj) => {
+    const NinjaList = ninjas.map((n)=>{
+        if(n.age>20) //Conditional outputting
         return(
-            <div className="ninja" key={ninj.id}>
-                <div>Name: {ninj.name}</div>
-                <div>Age: {ninj.age}</div>
-                <div>Belt: {ninj.belt}</div>
-                <hr/>
+            <div className="ninja" key={n.id}>
+                <div>Name:{n.name}</div>
+                <div>Age:{n.age}</div>
+                <div>belt:{n.belt}</div>
             </div>
         )
-        //Here ninj represents each individual ninjas
+        else
+            return null
     })
+
     return(
-        <div className="ninja-list">           
-            {ninjaList}
+        <div className="ninjaList">
+            {NinjaList}
         </div>
     )
-
 }
+
 export default Ninjas

@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Ninjas from './Ninjas'
+import AddNinja from './AddNinja'
 
 class App extends Component{
 
@@ -11,13 +12,23 @@ class App extends Component{
     ]
   }
 
+  addNinja = (ninj) => {
+    console.log(ninj)
+    ninj.id = Math.random()
+
+    let newNinjaArray = [...this.state.ninjas,ninj] //Copying using Spread operator
+    this.setState({
+      ninjas: newNinjaArray
+    })
+  }
+
   render(){
     return(
       <div className="App">
         <h1>My first React App</h1>
         <p>Welcome XD </p>   
         <Ninjas ninjas={this.state.ninjas}/>
-                
+        <AddNinja addAnother={this.addNinja} />                
       </div>
     );
   }
