@@ -11,7 +11,7 @@
     <title>Test</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="app"></div>
     <script type="text/babel">
         class App extends React.Component{
 
@@ -20,39 +20,30 @@
                 age:17
             }
 
-            handleClick = (e) => {
+            handleChange = (e) => {
                 this.setState({
-                    name:"Coral",
-                    age:9
+                    name:e.target.value
                 })
-                console.log(e.target);                
             }
 
-            handleMouseOver = (e) => {
-                this.setState({
-                    age:this.state.age+1
-                })
-                console.log(e)
-            }
-
-            handleCopy = (e) => {
-                console.log("Be You for once")
-                
+            handleSubmit = (e) => {
+                e.preventDefault()
             }
 
             render(){
                 return(
                     <div>
-                    <h1>Hellow, TestWorld</h1>                    
-                    <hr/>
-                    <p onCopy={this.handleCopy}>Hi, My name is {this.state.name} and I am {this.state.age} years old</p>
-                    <button onClick={this.handleClick}>Change Character</button>
-                    <button onMouseOver={this.handleMouseOver}>Increment Age</button>
+                        <h1>My name is {this.state.name}</h1>
+                        <form onSubmit = {this.handleSubmit}>
+                            <input onChange={this.handleChange} type="text"/>
+                            <button type="submit">Submit</button>
+                        </form>
                     </div>
                 )
             }
+
         }
-        ReactDOM.render(<App/>,document.getElementById("root"))
+        ReactDOM.render(<App/>,document.getElementById("app"))
     
     </script>
     
