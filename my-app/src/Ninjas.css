@@ -1,0 +1,12 @@
+body{
+    background: pink;
+}
+
+form{
+    background-color: #fff;
+}
+
+/* Just use index.css to style all the classes and ids
+since all the components can be styled from that one css file */
+/* Also, from any css file of any of the component, all other components can be styled
+How cool is that??!!! */

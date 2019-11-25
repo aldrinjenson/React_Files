@@ -13,7 +13,7 @@ class App extends Component{
   }
 
   addNinja = (ninj) => {
-    console.log(ninj)
+    // console.log(ninj)
     ninj.id = Math.random()
 
     let newNinjaArray = [...this.state.ninjas,ninj] //Copying using Spread operator
@@ -22,12 +22,34 @@ class App extends Component{
     })
   }
 
+  deleteNinja = (id) => {
+    console.log(id);
+    let newNinjas = this.state.ninjas.filter((n) => {
+      return n.id !== id
+    })    
+    //filter method filters the data only if the condition satifies
+
+    this.setState({
+      ninjas:newNinjas
+    })
+
+  }
+
+  componentDidMount(){
+    console.log("Component Mounted"); 
+  }
+
+  componentDidUpdate(prevProp,prevState){
+    console.log("Component Updated");
+    console.log(prevProp,prevState)    
+  }
+
   render(){
     return(
       <div className="App">
         <h1>My first React App</h1>
         <p>Welcome XD </p>   
-        <Ninjas ninjas={this.state.ninjas}/>
+        <Ninjas ninjas={this.state.ninjas} deleteWho={this.deleteNinja}/>
         <AddNinja addAnother={this.addNinja} />                
       </div>
     );
