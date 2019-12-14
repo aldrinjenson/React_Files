@@ -5,9 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* padding-bottom: 10%; */
+  padding: 0% 2% 5%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+.NinjaList list warriors  {
+  background-color: pink;
+  float: left;
 }
