@@ -15,7 +15,6 @@ class CreateProjects extends Component {
     handleSubmit = (e)=>{
         e.preventDefault()
         console.log(this.state);
-        
     }
 
     render() {
@@ -33,10 +32,7 @@ class CreateProjects extends Component {
                         <input type="text" id="content" className="materialize-textarea" onChange={this.handleChange}/>
                     </div>
                     <button className="btn pink lighten-2 ">Create Project</button>
-                    
                 </form>              
-                
-                
             </div>
         )
     }
